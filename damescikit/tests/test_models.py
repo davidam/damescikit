@@ -34,6 +34,9 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
 from sklearn import svm
+from sklearn.svm import SVR
+from sklearn.linear_model import Perceptron
+
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -61,3 +64,12 @@ class TddInPythonExample(unittest.TestCase):
         clf = svm.SVC()
         clf.fit(X, y)
         self.assertTrue(np.array_equal(clf.predict(np.array([[0, 0]])), np.array([0])))
+
+
+    def test_models_perceptron(self):
+        X = np.array([[0, 0], [1, 1]])
+        y = np.array([0, 1])
+        clf = Perceptron(tol=1e-3, random_state=0)
+        clf.fit(X, y)
+        print(clf.score(X, y))
+        self.assertEqual(1.0, clf.score(X,y))
