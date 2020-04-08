@@ -87,3 +87,10 @@ class TddInPythonExample(unittest.TestCase):
         predicted= model.predict([[1,2],[3,4]])
 #        print(predicted)
         self.assertTrue(np.array_equal(predicted, np.array([3, 4])))
+
+    def test_models_bernoullinb(self):
+        X = np.random.randint(5, size=(6, 100))
+        y = np.array([1, 2, 3, 4, 5, 6])
+        clf = BernoulliNB()
+        clf.fit(X, y)
+        self.assertTrue(np.array_equal([3], clf.predict(X[2:3])))
