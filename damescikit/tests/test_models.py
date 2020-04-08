@@ -54,3 +54,10 @@ class TddInPythonExample(unittest.TestCase):
         clf.fit(X, y)
         n = np.array([1, 0])
         self.assertTrue(np.array_equal(clf.predict([[2., 2.], [-1., -2.]]), n))
+
+    def test_models_svc(self):
+        X = np.array([[0, 0], [1, 1]])
+        y = np.array([0, 1])
+        clf = svm.SVC()
+        clf.fit(X, y)
+        self.assertTrue(np.array_equal(clf.predict(np.array([[0, 0]])), np.array([0])))
