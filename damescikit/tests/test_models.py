@@ -94,3 +94,11 @@ class TddInPythonExample(unittest.TestCase):
         clf = BernoulliNB()
         clf.fit(X, y)
         self.assertTrue(np.array_equal([3], clf.predict(X[2:3])))
+
+    def test_models_tree(self):
+        from sklearn import tree
+        X = [[0, 0], [1, 1]]
+        Y = [0, 1]
+        clf = tree.DecisionTreeClassifier()
+        clf = clf.fit(X, Y)
+        self.assertTrue(np.array(1), clf.predict([[2., 2.]]))
