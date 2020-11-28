@@ -20,4 +20,5 @@
 # Boston, MA 02110-1301 USA,
 
 emacs README.org -Q --batch -f org-ascii-export-to-ascii
+mv README.txt README.md
 
