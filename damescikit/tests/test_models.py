@@ -33,6 +33,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
+from sklearn.kernel_approximation import RBFSampler
 from sklearn import svm
 from sklearn.svm import SVR
 from sklearn.linear_model import Perceptron
@@ -102,3 +103,12 @@ class TddInPythonExample(unittest.TestCase):
         clf = tree.DecisionTreeClassifier()
         clf = clf.fit(X, Y)
         self.assertTrue(np.array(1), clf.predict([[2., 2.]]))
+
+    def test_models_kernel_approximation(self):
+        X = [[0, 0], [1, 1], [1, 0], [0, 1]]
+        y = [0, 0, 1, 1]
+        rbf_feature = RBFSampler(gamma=1, random_state=1)
+        X_features = rbf_feature.fit_transform(X)
+        clf = SGDClassifier()
+        print(clf.fit(X_features, y))
+        self.assertEqual(clf.score(X_features, y), 1)
