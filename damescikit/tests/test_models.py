@@ -110,5 +110,5 @@ class TddInPythonExample(unittest.TestCase):
         rbf_feature = RBFSampler(gamma=1, random_state=1)
         X_features = rbf_feature.fit_transform(X)
         clf = SGDClassifier()
-        print(clf.fit(X_features, y))
+        clf.fit(X_features, y)
         self.assertEqual(clf.score(X_features, y), 1)
