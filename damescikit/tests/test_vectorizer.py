@@ -26,6 +26,7 @@ from numpy import array
 from scipy.sparse import csr_matrix
 from pprint import pprint
 
+
 class TddInPythonExample(unittest.TestCase):
 
     def test_vectorizer_method_returns_correct_result(self):
@@ -38,7 +39,9 @@ class TddInPythonExample(unittest.TestCase):
         ]
         vectorizer = CountVectorizer()
         X = vectorizer.fit_transform(corpus)
-        self.assertEqual(['and', 'document', 'first', 'is', 'one', 'second', 'the', 'third', 'this'], vectorizer.get_feature_names())
+        self.assertEqual(['and', 'document', 'first', 'is',
+                          'one', 'second', 'the', 'third', 'this'],
+                         vectorizer.get_feature_names())
 
     def test_vectorizer2_method_returns_correct_result(self):
         # this test allows create the dictionary with the words of the text
@@ -49,4 +52,6 @@ class TddInPythonExample(unittest.TestCase):
         # tokenize and build vocab
         vectorizer.fit(text)
         # summarize: the word and the position in the array
-        self.assertEqual({'the': 7, 'quick': 6, 'brown': 0, 'fox': 2, 'jumped': 3, 'over': 5, 'lazy': 4, 'dog': 1}, vectorizer.vocabulary_)
+        self.assertEqual({'the': 7, 'quick': 6, 'brown': 0,
+                          'fox': 2, 'jumped': 3, 'over': 5,
+                          'lazy': 4, 'dog': 1}, vectorizer.vocabulary_)
