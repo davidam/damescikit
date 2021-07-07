@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with DameScikit; see the file COPYING.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
@@ -33,7 +33,7 @@ from os import path
 #     long_description = f.read()
 
 setup(name='damescikit',
-      version='0.0.2',
+      version='0.0.6',
       description='Learning Scikit from Tests by David Arroyo Menéndez',
       long_description='Learning Scikit from Tests by David Arroyo Menéndez',
       long_description_content_type='text/markdown',
@@ -44,13 +44,14 @@ setup(name='damescikit',
         'Topic :: Scientific/Engineering',
       ],
       keywords='scikit tests',
-#      scripts=['bin/damenumpy-sum.py'],
       url='http://github.com/davidam/damescikit',
       author='David Arroyo Menéndez',
       author_email='davidam@gnu.org',
       license='GPLv3',
       packages=['damescikit', 'damescikit.tests'],
-      package_dir={'damescikit': 'damescikit', 'damescikit.tests': 'damescikit/tests', 'damescikit.bin': 'damescikitx/bin'},
+      package_dir={'damescikit': 'damescikit',
+                   'damescikit.tests': 'damescikit/tests',
+                   'damescikit.bin': 'damescikit/bin'},
       install_requires=[
           'markdown',
           'numpy',
