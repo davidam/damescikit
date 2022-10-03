@@ -37,6 +37,8 @@ from sklearn.kernel_approximation import RBFSampler
 from sklearn import svm
 from sklearn.svm import SVR
 from sklearn.linear_model import Perceptron
+import collections
+collections.Callable = collections.abc.Callable
 
 
 class TddInPythonExample(unittest.TestCase):
