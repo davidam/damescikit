@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with Damegender; see the file LICENSE.  If not, write to
+# along with Damescikit; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
@@ -37,6 +37,8 @@ from sklearn.kernel_approximation import RBFSampler
 from sklearn import svm
 from sklearn.svm import SVR
 from sklearn.linear_model import Perceptron
+import collections
+collections.Callable = collections.abc.Callable
 
 
 class TddInPythonExample(unittest.TestCase):

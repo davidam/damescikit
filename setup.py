@@ -33,7 +33,7 @@ from os import path
 #     long_description = f.read()
 
 setup(name='damescikit',
-      version='0.0.6',
+      version='0.1.2',
       description='Learning Scikit from Tests by David Arroyo Menéndez',
       long_description='Learning Scikit from Tests by David Arroyo Menéndez',
       long_description_content_type='text/markdown',
@@ -46,12 +46,13 @@ setup(name='damescikit',
       keywords='scikit tests',
       url='http://github.com/davidam/damescikit',
       author='David Arroyo Menéndez',
-      author_email='davidam@gnu.org',
+      author_email='davidam@gmail.com',
       license='GPLv3',
       packages=['damescikit', 'damescikit.tests'],
       package_dir={'damescikit': 'damescikit',
                    'damescikit.tests': 'damescikit/tests',
                    'damescikit.bin': 'damescikit/bin'},
+      data_files=[('damescikit', ['damescikit/runtests.sh'])],      
       install_requires=[
           'markdown',
           'numpy',
