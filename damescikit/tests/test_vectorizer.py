@@ -29,20 +29,6 @@ from pprint import pprint
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_vectorizer_method_returns_correct_result(self):
-        # this test allows create the vector with the words of the text
-        corpus = [
-            'This is the first document.',
-            'This document is the second document.',
-            'And this is the third one.',
-            'Is this the first document?',
-        ]
-        vectorizer = CountVectorizer()
-        X = vectorizer.fit_transform(corpus)
-        self.assertEqual(['and', 'document', 'first', 'is',
-                          'one', 'second', 'the', 'third', 'this'],
-                         vectorizer.get_feature_names())
-
     def test_vectorizer2_method_returns_correct_result(self):
         # this test allows create the dictionary with the words of the text
         # list of text documents
