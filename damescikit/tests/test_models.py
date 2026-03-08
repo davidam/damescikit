@@ -49,7 +49,16 @@ class TddInPythonExample(unittest.TestCase):
         clf = LinearDiscriminantAnalysis()
         clf.fit(X, y)
         self.assertEqual(clf.predict([[-1, -1]]), 1)
-
+        
+    def test_models_pickle(self):
+        X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
+        y = np.array([1, 1, 1, 2, 2, 2])
+        clf = LinearDiscriminantAnalysis()
+        clf.fit(X, y)
+        self.assertEqual(clf.predict([[-1, -1]]), 1)
+        filename = 'files/lda_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
+        
     def test_models_mlp(self):
         X = [[0., 0.], [1., 1.]]
         y = [0, 1]
@@ -67,7 +76,23 @@ class TddInPythonExample(unittest.TestCase):
         clf.fit(X, y)
         self.assertTrue(np.array_equal(clf.predict(np.array([[0, 0]])),
                                        np.array([0])))
+        
+    def test_models_svc_dump(self):
+        X = np.array([[0, 0], [1, 1]])
+        y = np.array([0, 1])
+        clf = svm.SVC()
+        clf.fit(X, y)
+        filename = 'files/svc_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
 
+    def test_models_svc_load(self):
+        # loads a support vector machine (SVC) classifier model
+        pkl_file = open('files/svc_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        self.assertTrue(np.array_equal(clf.predict(np.array([[0, 0]])),
+                                       np.array([0])))
+        
     def test_models_perceptron(self):
         X = np.array([[0, 0], [1, 1]])
         y = np.array([0, 1])
