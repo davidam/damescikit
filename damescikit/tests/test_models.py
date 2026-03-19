@@ -50,7 +50,7 @@ class TddInPythonExample(unittest.TestCase):
         clf.fit(X, y)
         self.assertEqual(clf.predict([[-1, -1]]), 1)
         
-    def test_models_pickle(self):
+    def test_models_lda_dump(self):
         X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
         y = np.array([1, 1, 1, 2, 2, 2])
         clf = LinearDiscriminantAnalysis()
@@ -58,6 +58,13 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(clf.predict([[-1, -1]]), 1)
         filename = 'files/lda_model.sav'
         pickle.dump(clf, open(filename, 'wb'))
+
+    def test_models_lda_load(self):
+        # loads a LDA classifier model
+        pkl_file = open('files/lda_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        self.assertTrue(clf.predict([[-1, -1]]), 1)
         
     def test_models_mlp(self):
         X = [[0., 0.], [1., 1.]]
