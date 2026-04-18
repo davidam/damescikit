@@ -10,14 +10,14 @@
 # There are some restrictions on what makes a valid project name
 # specification here:
 # https://packaging.python.org/specifications/core-metadata/#name
-name = "damebasics"  # Required
+name = "damescikit"  # Required
 
 # Versions should comply with PEP 440:
 # https://www.python.org/dev/peps/pep-0440/
 #
 # For a discussion on single-sourcing the version, see
 # https://packaging.python.org/guides/single-sourcing-package-version/
-version = "0.2"  # Required
+version = "0.1.6"  # Required
 
 # This is a one-line description or tagline of what your project does. This
 # corresponds to the "Summary" metadata field:
@@ -151,7 +151,7 @@ main = "main:main"
 [tool.setuptools]
 # If there are data files included in your packages that need to be
 # installed, specify them here.
-package-data = {"damescikit" = ['damescikit/files/pg1513.txt', 'damescikit/files/fiall.csv', 'damescikit/files/buggy.txt', 'damescikit/runtests.sh', 'damescikit/files/tmp.txt', 'damescikit/files/tmp2.txt'] }
+package-data = {"damescikit" = ['damescikit/runtest.sh'] }
 
 [build-system]
 # These are the assumed default build requirements from pip:
