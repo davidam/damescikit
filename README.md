@@ -1,55 +1,76 @@
-David
+
+# Table of Contents
+
+1.  [What?](#orgb69adda)
+2.  [Installing](#orgd46109b)
+    1.  [Create a python environment](#org513266c)
+    2.  [Install the python package](#org0414010)
+    3.  [Access to the path of the package](#org9eb5b85)
+3.  [Check Test](#orge480c64)
+    1.  [In the path:](#org49f38f4)
+    2.  [Execute all tests:](#orga382a4f)
+    3.  [Execute one file:](#org38d200b)
 
 
-Table of Contents
-_________________
+<a id="orgb69adda"></a>
 
-1 Check Test
-2 Pypi
+# What?
 
-
-Learning machine learning with scikit from Tests by David Arroyo
-Menéndez
+That's a package to run tests about scikit library of Python.
+For example, create models, vectorizer
 
 
-1 Check Test
-============
+<a id="orgd46109b"></a>
 
-  + In the path:
-
-  ,----
-  | $ cd damescikit
-  `----
-
-  + Execute all tests:
-  ,----
-  | $ nosetests3 tests
-  `----
-
-  + Execute one file:
-  ,----
-  | $ nosetests3 tests/test_models.py
-  `----
-
-  + Execute one test:
-  ,----
-  | nosetests3 tests/test_models.py:TddInPythonExample.test_vectorizer_method_returns_correct_result
-  `----
+# Installing
 
 
-2 Pypi
-======
+<a id="org513266c"></a>
 
-  + To install from local:
-  $ pip install -e .
+## Create a python environment
 
-  + To install create tar.gz in dist directory:
-  $ python3 setup.py register sdist
+    $ mkdir venv3.14
+    $ python3 -m venv venv3.14
+    $ cd venv3.14
+    $ source bin/activate  
 
-  + To upload to pypi:
-  $ twine upload dist/damenltk-0.1.tar.gz
 
-  + You can install from Internet in a python virtual environment to
-    check:
-  $ python3 -m venv /tmp/dn $ cd /tmp/dn $ source bin/activate $ pip3
-  install damenltk
+<a id="org0414010"></a>
+
+## Install the python package
+
+    $ pip3 install damescikit
+
+
+<a id="org9eb5b85"></a>
+
+## Access to the path of the package
+
+    $ cd lib/python3.14/site-packages/damescikit
+
+
+<a id="orge480c64"></a>
+
+# Check Test
+
+
+<a id="org49f38f4"></a>
+
+## In the path:
+
+    $ cd damescikit
+
+
+<a id="orga382a4f"></a>
+
+## Execute all tests:
+
+    $ pytest tests
+
+
+<a id="org38d200b"></a>
+
+## Execute one file:
+
+    $ pytest tests/test_models.py
+
