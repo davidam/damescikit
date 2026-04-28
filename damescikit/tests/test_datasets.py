@@ -25,6 +25,7 @@ import unittest
 import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.datasets import fetch_20newsgroups
+from sklearn.datasets import fetch_california_housing
 import collections
 collections.Callable = collections.abc.Callable
 
@@ -45,7 +46,12 @@ class TddInPythonExample(unittest.TestCase):
         # newsgroups_train.filenames.shape
         # newsgroups_train.target.shape
         b = newsgroups_train.target[:10]
-        print(type(b))
         res2 = np.array([0, 1, 1, 1, 0, 1, 1, 0, 0, 0])
-        print(res2)
         self.assertTrue(np.array_equal(b,res2))
+
+    def test_california(self):
+        housing = fetch_california_housing()
+        # print(housing.data.shape, housing.target.shape)
+        a = housing.feature_names[0:6]
+        res1 = ['MedInc', 'HouseAge', 'AveRooms', 'AveBedrms', 'Population', 'AveOccup']
+        self.assertEqual(a, res1)
