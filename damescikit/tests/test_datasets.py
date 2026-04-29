@@ -24,6 +24,7 @@
 import unittest
 import numpy as np
 from sklearn.datasets import load_iris
+from sklearn.datasets import fetch_lfw_people
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.datasets import fetch_california_housing
 import collections
@@ -55,3 +56,14 @@ class TddInPythonExample(unittest.TestCase):
         a = housing.feature_names[0:6]
         res1 = ['MedInc', 'HouseAge', 'AveRooms', 'AveBedrms', 'Population', 'AveOccup']
         self.assertEqual(a, res1)
+
+    def test_lfw(self):
+        lfw_people = fetch_lfw_people(min_faces_per_person=70, resize=0.4)
+        n = len(lfw_people)
+        res = 5
+        self.assertEqual(n,res)
+        name = lfw_people.target_names[0]
+        res = "Ariel Sharon"
+        self.assertEqual(name,res)
+
+        
