@@ -137,6 +137,15 @@ class TddInPythonExample(unittest.TestCase):
         clf = clf.fit(X, Y)
         self.assertEqual(1, clf.predict([[2., 2.]]))
 
+    def test_models_sgd(self):
+        X = [[0., 0.], [1., 1.]]
+        y = [0, 1]
+        clf = SGDClassifier(loss="hinge", penalty="l2")
+        clf.fit(X, y)
+        a = clf.predict([[2., 2.]])
+        res = 1
+        self.assertEqual(a, res)
+        
     def test_models_kernel_approximation(self):
         X = [[0, 0], [1, 1], [1, 0], [0, 1]]
         y = [0, 0, 1, 1]
