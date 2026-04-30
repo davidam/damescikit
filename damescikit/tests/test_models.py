@@ -26,6 +26,7 @@ import numpy as np
 import pickle
 import os.path
 
+from sklearn import linear_model
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.neural_network import MLPClassifier
@@ -134,7 +135,7 @@ class TddInPythonExample(unittest.TestCase):
         Y = [0, 1]
         clf = tree.DecisionTreeClassifier()
         clf = clf.fit(X, Y)
-        self.assertTrue(np.array(1), clf.predict([[2., 2.]]))
+        self.assertEqual(1, clf.predict([[2., 2.]]))
 
     def test_models_kernel_approximation(self):
         X = [[0, 0], [1, 1], [1, 0], [0, 1]]
@@ -144,3 +145,4 @@ class TddInPythonExample(unittest.TestCase):
         clf = SGDClassifier()
         clf.fit(X_features, y)
         self.assertEqual(clf.score(X_features, y), 1)
+
