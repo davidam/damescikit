@@ -155,3 +155,11 @@ class TddInPythonExample(unittest.TestCase):
         clf.fit(X_features, y)
         self.assertEqual(clf.score(X_features, y), 1)
 
+    def test_models_multinomial(self):
+        X = [[0., 0.], [1., 1.], [2., 5.], [3., 27.], [1., 4.]]
+        y = np.array([1, 2, 3, 4, 5])
+        clf = MultinomialNB()
+        clf.fit(X, y)
+        a = clf.predict(X[2:3])
+        res = np.array([5])
+        self.assertEqual(a, res)
