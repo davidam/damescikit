@@ -53,16 +53,15 @@ file:img/classification.png
 We want predict a category and we’ve labeled
 data with <100k samples
 #+BEGIN_SRC bash
-$ python3 plot_sgd_iris.py
-$ python3 sgd.py
+  $ pytest tests/test_models.py::TddInPythonExample::test_models_sgd
 #+END_SRC
 
 ** Classification: Kernel Approximation
 We want predict a category and we’ve labeled
 data with <100k samples and SGD is not working
 
-#+BEGIN_SRC bash
-$ python3 kernel-approximation.py
+#+BEGIN_SRC
+  $ pytest tests/test_models.py::TddInPythonExample::test_models_kernel_approximation  
 #+END_SRC
 
 ** Classification: Naive Bayes
@@ -79,9 +78,9 @@ file:img/naivebayes-table2.png
 
 ** Classification: Naive Bayes Examples
 
-#+BEGIN_SRC bash
-$ python3 gaussiannb.py
-$ python3 bernoullinb.py
+#+BEGIN_SRC
+$ pytest tests/test_models.py::TddInPythonExample::test_models_gaussiannb
+$ pytest tests/test_models.py::TddInPythonExample::test_models_bernoullinb
 $ python3 multinomialnb.py
 $ python3 nltk/sexmachine.py
 #+END_SRC
