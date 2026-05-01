@@ -163,3 +163,14 @@ class TddInPythonExample(unittest.TestCase):
         a = clf.predict(X[2:3])
         res = np.array([5])
         self.assertEqual(a, res)
+
+    def test_models_svr(self):
+        X = np.array([[0, 0], [1, 1]])
+        y = np.array([0, 1])
+        clf = SVR(C=1.0, epsilon=0.2)
+        clf.fit(X, y)
+        a = clf.predict([[1, 1]])
+        a[0] = round(a[0],1)
+        res = np.array([0.8])
+        self.assertEqual(a.shape,res.shape)
+        self.assertTrue(np.array_equal(a,res))
