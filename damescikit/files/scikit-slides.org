@@ -81,8 +81,9 @@ file:img/naivebayes-table2.png
 #+BEGIN_SRC
 $ pytest tests/test_models.py::TddInPythonExample::test_models_gaussiannb
 $ pytest tests/test_models.py::TddInPythonExample::test_models_bernoullinb
-$ python3 multinomialnb.py
-$ python3 nltk/sexmachine.py
+$ pytest tests/test_models.py::TddInPythonExample::test_models_multinomial
+$ wget -c https://raw.githubusercontent.com/davidam/python-examples/refs/heads/master/nlp/nltk/sexmachine.py
+$ python3 sexmachine.py
 #+END_SRC
 
 ** Classification: SVC
@@ -102,7 +103,7 @@ We want predict a category and we’ve labeled
 data with <100k samples
 
 #+BEGIN_SRC bash
-$ python3 svc-example.py
+$ pytest tests/test_models.py::TddInPythonExample::test_models_svc
 #+END_SRC
 
 ** Classification: Trees
@@ -123,12 +124,12 @@ variables (regression) and does not compute rule sets.
 
 ** Classification: Trees (II)
 
+Execute code! Read code! Modify code!
+
 #+BEGIN_SRC bash
-$ python3 plot_iris1.py
-$ python3 plot_unveil_tree_structure.py
-$ python3 plot_classifier_comparison.py
-$ python3 plot_ensemble_oob.py
-$ python3 datasets/decisiontree.py
+  $ pytest tests/test_models.py::TddInPythonExample::test_models_tree
+  $ pytest tests/test_models.py::TddInPythonExample::test_models_tree_iris
+  $ pytest tests/test_models.py::TddInPythonExample::test_models_tree_regressor 
 #+END_SRC
 
 ** Regression
