@@ -26,6 +26,7 @@ import numpy as np
 import pickle
 import os.path
 
+from sklearn.datasets import load_iris
 from sklearn import linear_model
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
@@ -35,6 +36,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.kernel_approximation import RBFSampler
+from sklearn import tree
 from sklearn import svm
 from sklearn.svm import SVR
 from sklearn.linear_model import Perceptron
@@ -130,7 +132,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(np.array_equal([3], clf.predict(X[2:3])))
 
     def test_models_tree(self):
-        from sklearn import tree
         X = [[0, 0], [1, 1]]
         Y = [0, 1]
         clf = tree.DecisionTreeClassifier()
@@ -138,8 +139,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(1, clf.predict([[2., 2.]]))
 
     def test_models_tree_iris(self):
-        from sklearn.datasets import load_iris
-        from sklearn import tree
         iris = load_iris()
         X, y = iris.data, iris.target
         clf = tree.DecisionTreeClassifier()
@@ -147,7 +146,16 @@ class TddInPythonExample(unittest.TestCase):
         a = clf.predict(np.array([[5.9, 3.,  5.1, 1.8]]))
         res = 2
         self.assertEqual(a,res)
-    
+
+    def test_moodels_tree_regressor(self):    
+        X = [[0, 0], [2, 2]]
+        y = [0.5, 2.5]
+        clf = tree.DecisionTreeRegressor()
+        clf = clf.fit(X, y)
+        a = clf.predict([[1, 1]])
+        print(a)
+        res = np.array([0.5])
+        self.assertEqual(a,res)
         
     def test_models_sgd(self):
         X = [[0., 0.], [1., 1.]]
