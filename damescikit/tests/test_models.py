@@ -137,6 +137,18 @@ class TddInPythonExample(unittest.TestCase):
         clf = clf.fit(X, Y)
         self.assertEqual(1, clf.predict([[2., 2.]]))
 
+    def test_models_tree_iris(self):
+        from sklearn.datasets import load_iris
+        from sklearn import tree
+        iris = load_iris()
+        X, y = iris.data, iris.target
+        clf = tree.DecisionTreeClassifier()
+        clf = clf.fit(X, y)
+        a = clf.predict(np.array([[5.9, 3.,  5.1, 1.8]]))
+        res = 2
+        self.assertEqual(a,res)
+    
+        
     def test_models_sgd(self):
         X = [[0., 0.], [1., 1.]]
         y = [0, 1]
