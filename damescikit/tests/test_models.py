@@ -194,3 +194,12 @@ class TddInPythonExample(unittest.TestCase):
         res = np.array([0.8])
         self.assertEqual(a.shape,res.shape)
         self.assertTrue(np.array_equal(a,res))
+
+    def test_models_lasso(self):
+        # https://scikit-learn.org/stable/modules/linear_model.html#lasso
+        reg = linear_model.Lasso(alpha=0.1)
+        reg.fit([[0, 0], [1, 1]], [0, 1])
+        myres = reg.predict([[1, 1]])
+        res = np.array([0.8])
+        self.assertTrue(np.array_equal(myres, res))
+        
