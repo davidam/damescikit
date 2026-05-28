@@ -203,3 +203,13 @@ class TddInPythonExample(unittest.TestCase):
         res = np.array([0.8])
         self.assertTrue(np.array_equal(myres, res))
         
+    def test_models_ridge(self):
+        X = [[0., 0.], [1., 1.], [2., 2.], [3., 3.]]
+        Y = [0., 1., 2., 3.]
+        reg = linear_model.BayesianRidge()
+        reg.fit(X, Y)
+        a = reg.predict([[1, 0.]])
+        a = np.array(round(a[0], 1))
+        res = np.array(0.5)
+        self.assertTrue(np.array_equal(a, res))
+        
