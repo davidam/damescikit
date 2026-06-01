@@ -44,7 +44,7 @@ import collections
 collections.Callable = collections.abc.Callable
 
 
-class TddInPythonExample(unittest.TestCase):
+class Tdd(unittest.TestCase):
 
     def test_models_lda(self):
         X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
@@ -166,7 +166,7 @@ class TddInPythonExample(unittest.TestCase):
         res = 1
         self.assertEqual(a, res)
         
-    def test_models_kernel_approximation(self):
+    def test_models_kernel(self):
         X = [[0, 0], [1, 1], [1, 0], [0, 1]]
         y = [0, 0, 1, 1]
         rbf_feature = RBFSampler(gamma=1, random_state=1)
