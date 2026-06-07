@@ -147,7 +147,7 @@ class Tdd(unittest.TestCase):
         res = 2
         self.assertEqual(a,res)
 
-    def test_moodels_tree_regressor(self):    
+    def test_models_tree_regressor(self):    
         X = [[0, 0], [2, 2]]
         y = [0.5, 2.5]
         clf = tree.DecisionTreeRegressor()
