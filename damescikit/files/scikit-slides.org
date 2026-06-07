@@ -51,17 +51,17 @@ file:img/classification.png
 ** Classification: SGD
 
 We want predict a category and we’ve labeled
-data with <100k samples
+data with NOT <100k samples
 #+BEGIN_SRC bash
-  $ pytest tests/test_models.py::TddInPythonExample::test_models_sgd
+  $ pytest tests/test_models.py::Tdd::test_models_sgd
 #+END_SRC
 
 ** Classification: Kernel Approximation
 We want predict a category and we’ve labeled
-data with <100k samples and SGD is not working
+data with NOT <100k samples and SGD is not working
 
 #+BEGIN_SRC
-  $ pytest tests/test_models.py::TddInPythonExample::test_models_kernel_approximation  
+  $ pytest tests/test_models.py::Tdd::test_models_kernel
 #+END_SRC
 
 ** Classification: Naive Bayes
@@ -79,9 +79,9 @@ file:img/naivebayes-table2.png
 ** Classification: Naive Bayes Examples
 
 #+BEGIN_SRC
-$ pytest tests/test_models.py::TddInPythonExample::test_models_gaussiannb
-$ pytest tests/test_models.py::TddInPythonExample::test_models_bernoullinb
-$ pytest tests/test_models.py::TddInPythonExample::test_models_multinomial
+$ pytest tests/test_models.py::Tdd::test_models_gaussiannb
+$ pytest tests/test_models.py::Tdd::test_models_bernoullinb
+$ pytest tests/test_models.py::Tdd::test_models_multinomial
 $ wget -c https://raw.githubusercontent.com/davidam/python-examples/refs/heads/master/nlp/nltk/sexmachine.py
 $ python3 sexmachine.py
 #+END_SRC
@@ -103,7 +103,7 @@ We want predict a category and we’ve labeled
 data with <100k samples
 
 #+BEGIN_SRC bash
-$ pytest tests/test_models.py::TddInPythonExample::test_models_svc
+$ pytest tests/test_models.py::Tdd::test_models_svc
 #+END_SRC
 
 ** Classification: Trees
@@ -127,9 +127,8 @@ variables (regression) and does not compute rule sets.
 Execute code! Read code! Modify code!
 
 #+BEGIN_SRC bash
-  $ pytest tests/test_models.py::TddInPythonExample::test_models_tree
-  $ pytest tests/test_models.py::TddInPythonExample::test_models_tree_iris
-  $ pytest tests/test_models.py::TddInPythonExample::test_models_tree_regressor 
+  $ pytest tests/test_models.py::Tdd::test_models_tree
+  $ pytest tests/test_models.py::Tdd::test_models_tree_iris
 #+END_SRC
 
 ** Regression
@@ -153,7 +152,8 @@ holding the training samples, and an array Y of size
 the training samples:
 
 #+BEGIN_SRC bash
-$ pytest tests/test_models.py::TddInPythonExample::test_models_sgd 
+$ pytest tests/test_models.py::Tdd::test_models_sgd 
+$ pytest tests/test_models.py::Tdd::test_models_tree_regressor
 #+END_SRC
 
 ** Lasso
@@ -162,7 +162,7 @@ Linear Model trained with L1 prior as regularizer (aka the
 Lasso)
 
 #+BEGIN_SRC bash
-$ pytest tests/test_models.py::TddInPythonExample::test_models_lasso 
+$ pytest tests/test_models.py::Tdd::test_models_lasso 
 #+END_SRC
 
 ** Kernel Ridge
@@ -175,7 +175,7 @@ non-linear kernels, this corresponds to a non-linear function
 in the original space.
 
 #+BEGIN_SRC bash
-$ pytest tests/test_models.py::TddInPythonExample::test_models_ridge 
+$ pytest tests/test_models.py::Tdd::test_models_ridge 
 #+END_SRC
 
 ** Support Vector Regression
@@ -183,7 +183,7 @@ $ pytest tests/test_models.py::TddInPythonExample::test_models_ridge
 The free parameters in the model are C and epsilon.
 
 #+BEGIN_SRC bash
-$ pytest tests/test_models.py::TddInPythonExample::test_models_svr
+$ pytest tests/test_models.py::Tdd::test_models_svr
 #+END_SRC
 
 file:img/svr.png
@@ -202,8 +202,8 @@ Subdivide the space making regions from reference points called
 centroides
 
 #+BEGIN_SRC bash
+$ wget -c https://raw.githubusercontent.com/davidam/python-examples/refs/head/master/scikit/plot_kmeans_assumptions.py
 $ python3 plot_kmeans_assumptions.py
-$ python3 plot_cluster_iris.py
 #+END_SRC
 
 ** GMM
@@ -216,6 +216,7 @@ A set of K mixture weights, which are probabilities that sum to 1.
 A set of K parameters, each specifying the parameter of the corresponding mixture component. In many cases, each "parameter" is actually a set of parameters. For example, if the mixture components are Gaussian distributions, there will be a mean and variance for each component. If the mixture components are categorical distributions (e.g., when each observation is a token from a finite alphabet of size V), there will be a vector of V probabilities summing to 1.
 
 #+BEGIN_SRC bash
+$ wget -c https://raw.githubusercontent.com/davidam/python-examples/refs/head/master/scikit/plot_gmm_covariances.py  
 $ python3 plot_gmm_covariances.py
 #+END_SRC
 
@@ -242,7 +243,9 @@ $ python3 plot_mean_shift.py
 
 file:img/dimensionality-reduction.png
 
-The general task of pattern analysis is to find and study general types of relations (for example clusters, rankings, principal components, correlations, classifications) in datasets
+The general task of pattern analysis is to find and study general
+types of relations (for example clusters, rankings, principal
+components, correlations, classifications) in datasets
 
 ** Randomized PCA
 
